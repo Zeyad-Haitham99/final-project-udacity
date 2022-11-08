@@ -232,7 +232,7 @@ jobs:
           name: Run migrations
           command: |
             cd backend
-            npm installs
+            npm install
             npm  run build -prod
             npm run migrations > migrations_dump.txt
       - run:
