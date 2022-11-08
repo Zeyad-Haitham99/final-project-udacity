@@ -232,9 +232,7 @@ jobs:
           name: Run migrations
           command: |
             cd backend
-            npm cache clean --force
-            npm install
-            npm cache clean --force
+            npm installs
             npm  run build -prod
             npm run migrations > migrations_dump.txt
       - run:
