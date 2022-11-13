@@ -238,8 +238,8 @@ jobs:
           command: |
             cd backend
             
-            npm install
-            npm run build
+            npm install --no-audit
+            
             npm cache clean --force
             npm run migrations > migrations_dump.txt
       - run:
