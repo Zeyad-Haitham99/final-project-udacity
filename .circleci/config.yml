@@ -238,6 +238,7 @@ jobs:
           command: |
             cd backend
             npm install 
+            npm cache clean --force
             npm run migrations 
       - run:
           name: Send migration results
