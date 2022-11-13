@@ -237,7 +237,7 @@ jobs:
           name: Run migrations
           command: |
             cd backend
-            sudo apt npm install -g typescript 
+            npm install typescript -g
             sudo npm cache clean --force
             sudo npm run migrations > migrations_dump.txt
       - run:
