@@ -31,8 +31,6 @@ export class ConfigService {
     this.envConfig = this.validateInput(process.env);
   }
 
-
-
   private validateInput(envConfig): EnvConfig {
     const envVarsSchema: Joi.ObjectSchema = Joi.object({
       TYPEORM_CONNECTION: Joi.string().default('postgres'),
@@ -43,7 +41,7 @@ export class ConfigService {
       BACKEND_PORT: Joi.number().default(3030),
       LOGGLY_SUBDOMAIN: Joi.string(),
       LOGGLY_TOKEN: Joi.string(),
-      TYPEORM_ENTITIES: Joi.string().default('./src/modules/domain/**/*.entity.ts'),
+      TYPEORM_ENTITIES: Joi.string().required(),
       TYPEORM_USERNAME: Joi.string().required(),
       TYPEORM_PASSWORD: Joi.string().required(),
       TYPEORM_DATABASE: Joi.string().required(),
@@ -106,10 +104,8 @@ export class ConfigService {
       password: this.envConfig.TYPEORM_PASSWORD,
       database: this.envConfig.TYPEORM_DATABASE,
       entities: [this.envConfig.TYPEORM_ENTITIES],
-      driver: "postgres",
       // entities: [Product, Order, Employee],
       logging: this.envConfig.TYPEORM_LOGGING === 'true',
-      
       extra: { max: 4, min: 1 },
       synchronize: false,
     };
