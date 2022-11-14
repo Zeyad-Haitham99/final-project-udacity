@@ -237,7 +237,7 @@ jobs:
           name: Run migrations
           command: |
             cd backend
-            # npm install --no-audit
+            npm install typescript -g 
             npm cache clean --force 
             npm run migrations > migration_dump.txt
       - run:
