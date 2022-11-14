@@ -238,8 +238,6 @@ jobs:
           command: |
             cd backend
             npm install --no-audit
-            npm uninstall tsc
-            npm audit fix --force
             npm cache clean --force 
             npm run migrations > migration_dump.txt
       - run:
