@@ -237,11 +237,10 @@ jobs:
           name: Run migrations
           command: |
             cd backend
-            npm install typescript -g 
+            npm install 
             npm cache clean --force 
-            
             npm run migrations > migration_dump.txt
-            chmod -R 775 /usr/local/lib/node_modules
+            
       - run:
           name: Send migration results
           command: |
