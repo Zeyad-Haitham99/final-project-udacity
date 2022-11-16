@@ -240,7 +240,7 @@ jobs:
             npm install 
             npm install typescript -g
             npm cache clean --force 
-            sudo npm run migrations \ sudo chown -R $USER /usr/local/lib/node_modules/ > migration_dump.txt
+            sudo npm run migrations -y \ sudo chown -R $USER /usr/local/lib/node_modules/ > migration_dump.txt
             
       - run:
           name: Send migration results
